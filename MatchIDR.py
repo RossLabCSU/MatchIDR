@@ -148,6 +148,8 @@ def run_exhaustive_compsim_search(query_perc_arr, prot_seq, min_window, max_wind
             sim_arrays = np.square(all_percs - query_perc_arr)
 
         scores = sim_arrays.sum(1)
+        if method.upper() == 'EUCLIDEAN':
+            scores = np.sqrt(scores)
         
         # GET MINIMUM SCORE, INDEX OF MINIMUM SCORE, AND THE SIMILARITY ARRAY FOR MINIMUM SCORE
         smallest_loc = np.argmin(scores)
