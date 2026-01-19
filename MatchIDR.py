@@ -368,9 +368,9 @@ def output_params_header(output, random_id, query_ids, query_seqs, min_window, m
     
     output.write('>*RUNTIME PARAMETERS*\n')
     output.write('>Job ID: ' + str(random_id) + '\n')
-    output.write('>Query IDR Sequence(s): ' + str(query_seqs) + '\n')
-    output.write('>FASTA ID(s) of Query IDR(s): ' + str(query_ids) + '\n')
-    output.write('>FASTA File(s): ' + fasta_file + '\n')
+    output.write('>Query IDR Sequence(s): ' + ', '.join(query_seqs) + '\n')
+    output.write('>FASTA ID(s) of Query IDR(s): ' + ', '.join(query_ids) + '\n')
+    output.write('>FASTA File: ' + fasta_file + '\n')
     output.write('>Minimum Window Size: ' + str(min_window) + '\n')
     output.write('>Maximum Window Size: ' + str(max_window) + '\n')
     output.write('>Compositional Similarity Method: ' + method + '\n\n')
