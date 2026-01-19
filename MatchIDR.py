@@ -32,7 +32,7 @@ def main(args):
     # PREP OUTPUT FILE
     output = open(output_file, 'w')
     output_params_header(output, random_id, query_ids, query_seqs, min_window, max_window, method, fasta_file)
-    output.write('\t'.join( ['Protein Description','UniProt ID (when applicable)','Query Protein ID','Best Fragment Match','Compositional Identity', 'Distance Score for Best Fragment (' + method + ' Distance)','Domain Boundaries for Best Fragment'] + amino_acids) + '\n')
+    output.write('\t'.join( ['Protein Description','UniProt ID (when applicable)','Query Protein ID','Best Fragment Match','Compositional Identity', 'Distance Score for Best Fragment','Domain Boundaries for Best Fragment'] + amino_acids) + '\n')
     
     # CALCULATE PROTEOME SIZE AND PERCENTAGE MILESTONES FOR TRACKING CODE EXECUTION PROGRESS
     proteome_size = get_proteome_size(fasta_file)
