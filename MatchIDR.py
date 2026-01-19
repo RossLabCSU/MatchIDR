@@ -373,7 +373,7 @@ def output_params_header(output, random_id, query_ids, query_seqs, min_window, m
     output.write('>FASTA File: ' + fasta_file + '\n')
     output.write('>Minimum Window Size: ' + str(min_window) + '\n')
     output.write('>Maximum Window Size: ' + str(max_window) + '\n')
-    output.write('>Compositional Similarity Method: ' + method + '\n\n')
+    output.write('>Distance Metric: ' + method + '\n\n')
 
     return output
 
