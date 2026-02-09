@@ -22,6 +22,8 @@ __email__ = 'Sean.Cascarina@colostate.edu'
 
 
 def main(args):
+    
+    max_euclidean = math.sqrt(100**2 + 100**2)
 
     # RUN get_params() FUNCTION TO EXTRACT AND VALIDATE SEARCH PARAMETERS FROM COMMAND LINE ARGUMENTS
     query_ids, query_seqs, query_percs, min_window, max_window, amino_acids, method, fasta_file, output_file = get_params(args)
@@ -76,7 +78,10 @@ def main(args):
         for query_index, query_perc_arr in enumerate(query_percs):
             query_id = query_ids[query_index]
             best_score, best_frags, best_sim_arrays = run_exhaustive_compsim_search(query_perc_arr, seq, min_window, max_window, amino_acids, method)
-            comp_identity = 100 - best_score/2
+            if method == 'MANHATTAN':
+                comp_identity = 100 - best_score/2
+            elif method == 'EUCLIDEAN':
+                comp_identity = 100 - (best_score/max_euclidean*100)
             boundaries = []
             for best_frag in best_frags:
                 start = seq.index(best_frag) + 1
